@@ -1,8 +1,4 @@
-math
-random
-time
-pygame
-matplotlib
-numpy
-multiprocessing
-multithreading
+pygame==2.6.1
+matplotlib==3.10.1
+numpy==2.2.5
+
