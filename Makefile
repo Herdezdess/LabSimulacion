@@ -1,4 +1,4 @@
-SHELL := /bin/bash
+SHELL := /bin/bash #define que se trbajara con bash/linux
 
 banner:
 	@echo "  ██████████   █████████  ███████████ ██████   ██████"
@@ -11,19 +11,19 @@ banner:
 	@echo "░░░░░░░░░░   ░░░░░░░░░  ░░░░░       ░░░░░     ░░░░░  "
 
 create:
-	python3 -m venv .venv
+	python3 -m venv .venv #entorno virtual
 
-run:
+run: #activa el entorno virtual
 	source .venv/bin/activate && echo "Entorno activado (temporalmente en subshell)"
 
-install:
+install: #instala paquetes/dependencas
 	.venv/bin/pip install -r requirements.txt
 
-typecheck:
+typecheck: #ejecuta main y processing
 	mypy main.py
 	mypy processing/
 
-test:
+test: #ejecuta pruebas unitarias
 	python -m unittest discover -s tests
 
 build: banner create run install
