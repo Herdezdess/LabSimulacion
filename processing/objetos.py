@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
 import random
-from distribuciones import Distribuciones
+from processing.distribuciones import Distribuciones
 
 class Objeto:
   def __init__(self, tipo, config):
