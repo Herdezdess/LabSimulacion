@@ -16,12 +16,12 @@ class Distribucion():
   def set(self, valor_inicial:float=None, valor_final:float=None, distribucion:str=""):
         try:
             if distribucion=="normal":
-                var = self._normal_distribution(valor_inicial, valor_final)
+                dist = self._normal_distribution(valor_inicial, valor_final)
             elif distribucion=="uniform":
-                var = self._uniform_distribution(valor_inicial, valor_final)
+                dist = self._uniform_distribution(valor_inicial, valor_final)
             else:
                 raise Exception("No hay distribucion")
-            return var
+            return dist
         except Exception as e:
             print(f"Error: {e}")
 
