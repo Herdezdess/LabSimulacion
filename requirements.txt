@@ -4,3 +4,5 @@ time
 pygame
 matplotlib
 numpy
+multiprocessing
+multithreading
