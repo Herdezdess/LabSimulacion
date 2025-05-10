@@ -1,2 +1,6 @@
 simulacion:
   N: 100000                       # Numero de simulaciones
+
+parametros:
+  masa: 1
+  
