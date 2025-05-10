@@ -1,24 +1,24 @@
 import numpy as np
 
-class Distribution():
+class Distribucion():
   def _init_(self, N:int=None):
     self.N_ = N #aquí definimos que N sean los elementos que se generan
   #para el proyecto se nos pide una distribución normal y una uniforme
-  def _normal_distribution(self, n:float = 0.0, f:float=0.0):
-    val = np.random.normal(n, f, self._N)
+  def distribucion_normal(self, media:float = 0.0, desviacion:float=0.0):
+    dist = np.random.normal(media, desviacion, self._N)
     return val
 
-  def _uniform_distribution(self, n:float = 0.0, f:float = 0.0):
-    val = np.random.normal(n, f, self._N)
+  def distribucion_uniforme(self, media:float = 0.0, desviacion:float = 0.0):
+    dist = np.random.normal(n, f, self._N)
     return val
   
   #set nosdevuelve datos aleatorios, dependiendo de la distribución
-  def set(self, init_val:float=None, fin_val:float=None, distribution:str=""):
+  def set(self, valor_inicial:float=None, valor_final:float=None, distribucion:str=""):
         try:
-            if distribution=="normal":
-                var = self._normal_distribution(init_val, fin_val)
-            elif distribution=="uniform":
-                var = self._uniform_distribution(init_val, fin_val)
+            if distribucion=="normal":
+                var = self._normal_distribution(valor_inicial, valor_final)
+            elif distribucion=="uniform":
+                var = self._uniform_distribution(valor_inicial, valor_final)
             else:
                 raise Exception("No hay distribucion")
             return var
