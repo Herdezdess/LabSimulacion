@@ -12,7 +12,7 @@ class Distribution():
     val = np.random.normal(n, f, self._N)
     return val
   
-  #set nosdevuelve una distribucion aleatoria, dependiendo de la distribución
+  #set nosdevuelve datos aleatorios, dependiendo de la distribución
   def set(self, init_val:float=None, fin_val:float=None, distribution:str=""):
         try:
             if distribution=="normal":
