@@ -2,5 +2,10 @@ simulacion:
   N: 100000                       # Numero de simulaciones
 
 parametros:
-  masa: 1
+  WIDTH: 800
+  HEIGHT: 600
+  MIN_MASA: 1.0
+  MAX_MASA: 5.0
+  MIN_RADIO: 5
+  MAX_RADIO: 15
   
