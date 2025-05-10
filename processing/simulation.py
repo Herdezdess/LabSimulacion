@@ -1,6 +1,6 @@
 import pygame
 import math
-from objetos import Objeto
+from processing.objetos import Objeto
 
 class Simulacion:
   def __init__(self, objetos, config):
