@@ -19,7 +19,7 @@ class Objeto:
   def crear_figura(self, ax):
     tamaño = self.masa * M #M es la proporcion entre la masa y el tamaño del objeto 
 
-    if self.foma == "circulo":
+    if self.forma == "circulo":
       figura = patches.Circle((self.x, self.y), radius=tamaño, color=self.color)
       #El primer parametro nos da el centro de la figura que vamos a crear
       #El segundo parametro nos indica el radio que va a tener la figura 
