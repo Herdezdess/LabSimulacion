@@ -29,10 +29,10 @@ class Simulacion:
         objeto_1.y += objeto_1.velocidad_y
 
   def colision(self):
-      nuevo_objetos = []#objetos nuveos
+      nuevo_objetos = []
       for i, objeto_1 in enumerate(self.objetos):
          for j, objeto2 in enumerate(self.objetos):
-           if i !=j and j:
+           if i !=j:
              dx = objeto_2.x - objeto_1.x
              dy = objeto_2.y - objeto_1.y
              distancia = math.sqrt(dx**2 + dy**2)
@@ -46,8 +46,6 @@ class Simulacion:
               tipo = objeto_1.tipo #tipo del objeto 1
               nuevo_objeto = Objeto(tipo, masa_total, xn, yn, vx, vy, radio_nuevo)
               nuevo_objetos.append(nuevo_objeto)
-              break
-         else:
-           nuevo_objetos.append(objeto_1)
 
-  self.objetos = nuevos_objetos
+      self.objetos = nuevo_objetos
+
