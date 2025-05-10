@@ -6,11 +6,11 @@ class Distribucion():
   #para el proyecto se nos pide una distribución normal y una uniforme
   def distribucion_normal(self, media:float = 0.0, desviacion:float=0.0):
     dist = np.random.normal(media, desviacion, self._N)
-    return val
+    return dist
 
   def distribucion_uniforme(self, media:float = 0.0, desviacion:float = 0.0):
-    dist = np.random.normal(n, f, self._N)
-    return val
+    dist = np.random.normal(media, desviacion, self._N)
+    return dist
   
   #set nosdevuelve datos aleatorios, dependiendo de la distribución
   def set(self, valor_inicial:float=None, valor_final:float=None, distribucion:str=""):
