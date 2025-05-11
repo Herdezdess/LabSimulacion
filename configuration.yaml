@@ -1,18 +1,15 @@
-simulacion:
-  ancho: 800
-  alto: 600
-  N: 100
-  gravedad: 9.81
-  tiempo_simulacion: 100
-  ancho_espacio: 800
-  alto_espacio: 600
-  radio_interaccion: 100
-  radio_colision: 10
-  M: 0.5
+WIDTH = 800
+HEIGHT = 600
+NUM_PARTICULAS = 100
+G = 0.1  # Constante gravitacional simulada
+FUSION_DIST = 5  # Distancia a la que se fusionan las partículas
+TAMANO_PARTICULA = 7  # Tamaño base de las partículas
+MASA_MIN = 5  # Masa mínima de las partículas
+MASA_MAX = 15  # Masa máxima de las partículas
+RADIO_ESCALA = 0.1  # Puedes ajustarlo para cambiar visualmente el tamaño
 
-distribuciones:
-  media_gaussiana: 50
-  gaussiana_desviacion: 10
-  uniforme_min: 0
-  uniforme_max: 600                   # Distancia máxima en metros
-  
+
+# Colores en formato RGB para las partículas
+COLOR_MIN = [0, 0, 0]  # Rango mínimo (negro)
+COLOR_MAX = [255, 255, 255]  # Rango máximo (blanco)
+
