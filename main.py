@@ -1,76 +1,43 @@
 import pygame
-import random
-import numpy as np
-from multiprocessing import Process
-import time
+import random  # Importamos random
+import config
+from processing.objeto import Particula  # Importamos la clase Particula
+from processing.distribuciones import generar_posicion_uniforme
+from processing.simulacion import aplicar_gravedad, fusionar  # Importamos las funciones de simulación
 
-ANCHO = 800
-ALTO = 600
-N_OBJETOS = 20
+# Inicializar Pygame
+pygame.init()
+pantalla = pygame.display.set_mode((config.WIDTH, config.HEIGHT))
+pygame.display.set_caption("Simulación Gravitacional")
+clock = pygame.time.Clock()
 
-class Pelota:
-    def __init__(self):
-        self.x = random.randint(0, ANCHO)
-        self.y = random.randint(0, ALTO)
-        self.masa = abs(np.random.normal(loc=10, scale=5))
-        self.color = tuple((np.random.rand(3) * 255).astype(int))
-        self.forma = random.choice(["circulo", "cuadrado", "triangulo"])
-        self.radio = int(self.masa) + 5
-        self.vx = random.uniform(-1, 1)
-        self.vy = random.uniform(-1, 1)
+# Generar partículas usando distribuciones
+particulas = []
+for _ in range(config.NUM_PARTICULAS):
+    x, y = generar_posicion_uniforme(config.WIDTH, config.HEIGHT)
+    # Generar masa dentro del rango definido en config.py
+    masa = random.uniform(config.MASA_MIN, config.MASA_MAX)
+    particulas.append(Particula(x, y, masa))  # Crear partículas con la clase Particula
 
-    def mover(self):
-        self.x += self.vx
-        self.y += self.vy
+# Bucle principal
+running = True
+while running:
+    clock.tick(60)
+    pantalla.fill((0, 0, 0))
 
-        # Rebote en los bordes
-        if self.x < 0 or self.x > ANCHO:
-            self.vx *= -1
-        if self.y < 0 or self.y > ALTO:
-            self.vy *= -1
+    # Simulación
+    aplicar_gravedad(particulas)  # Aplicamos la gravedad
+    for p in particulas:
+        p.actualizar_pos()
+        p.dibujar(pantalla)
 
-    def dibujar(self, pantalla):
-        if self.forma == "circulo":
-            pygame.draw.circle(pantalla, self.color, (int(self.x), int(self.y)), self.radio)
-        elif self.forma == "cuadrado":
-            pygame.draw.rect(pantalla, self.color,
-                             (int(self.x - self.radio), int(self.y - self.radio),
-                              2 * self.radio, 2 * self.radio))
-        elif self.forma == "triangulo":
-            puntos = [
-                (int(self.x), int(self.y - self.radio)),
-                (int(self.x - self.radio), int(self.y + self.radio)),
-                (int(self.x + self.radio), int(self.y + self.radio))
-            ]
-            pygame.draw.polygon(pantalla, self.color, puntos)
+    particulas = fusionar(particulas)  # Fusionamos las partículas cercanas
 
-def run_simulation():
-    pygame.init()
-    pantalla = pygame.display.set_mode((ANCHO, ALTO))
-    pygame.display.set_caption("Simulación de Objetos Aleatorios")
+    # Evento de salida
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
-    objetos = [Pelota() for _ in range(N_OBJETOS)]
-    reloj = pygame.time.Clock()
-    corriendo = True
+    pygame.display.flip()
 
-    while corriendo:
-        for evento in pygame.event.get():
-            if evento.type == pygame.QUIT:
-                corriendo = False
-
-        pantalla.fill((0, 0, 0))
-
-        for obj in objetos:
-            obj.mover()
-            obj.dibujar(pantalla)
-
-        pygame.display.flip()
-        reloj.tick(60)
-
-    pygame.quit()
-
-if __name__ == "__main__":
-    p = Process(target=run_simulation)
-    p.start()
-    p.join()
-
+pygame.quit()
