@@ -2,6 +2,8 @@
 
 ***Alejandra Dessiré Zapeta Hernández: 202112959***
 
-** *Laboratorio de Simulación* **
+***Laboratorio de Simulación***
 
-# **Proyecto Final**
+# ***Proyecto Final***
+
+----
