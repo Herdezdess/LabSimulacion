@@ -20,4 +20,8 @@
 
 ## **requirements.txt**
 
-Paraeste código se implentaron los paquetes math, random, time, pygame, matplotlib, numpy, multiprocessing, multithreading.
+Para este código se implentaron los paquetes math, random, time, pygame, matplotlib, numpy, multiprocessing, multithreading.
+
+## **/precessing**
+
+### **objeto.py**
