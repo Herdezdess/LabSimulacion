@@ -18,4 +18,6 @@
 - *requirements.txt:* Dependencias utilizadas para el proyecto
 - *config.py:* Parametros de configuración del proyecto.
 
+## **requirements.txt**
 
+Paraeste código se implentaron los paquetes math, random, time, pygame, matplotlib, numpy, multiprocessing, multithreading.
