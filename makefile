@@ -1,4 +1,4 @@
-SHELL := cmd
+SHELL := /bin/bash
 
 banner:
 	@echo "  ██████████   █████████  ███████████ ██████   ██████"
@@ -11,19 +11,19 @@ banner:
 	@echo "░░░░░░░░░░   ░░░░░░░░░  ░░░░░       ░░░░░     ░░░░░  "
 
 create:
-	python -m venv .venv
+	python3 -m venv .venv #entorno virtual
 
-run:
-	@call .venv\Scripts\activate && echo Entorno activado
+run: #activa el entorno virtual
+	source .venv/bin/activate && echo "Entorno activado (temporalmente en subshell)"
 
-install:
-	.venv\Scripts\pip install -r requirements.txt
+install: #instala paquetes/dependencas
+	.venv/bin/pip install -r requirements.txt
 
-typecheck:
-	.venv\Scripts\mypy main.py
-	.venv\Scripts\mypy processing/
+typecheck: #ejecuta main y processing
+	mypy main.py
+	mypy processing/
 
-test:
-	.venv\Scripts\python -m unittest discover -s tests
+test: #ejecuta pruebas unitarias
+	python -m unittest discover -s tests
 
 build: banner create install test typecheck run
