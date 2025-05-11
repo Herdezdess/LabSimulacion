@@ -1,0 +1,16 @@
+simulacion:
+  N: 100
+  gravedad: 9.81
+  tiempo_simulacion: 100
+  ancho_espacio: 800
+  alto_espacio: 600
+  radio_interaccion: 100
+  radio_colison: 10
+  M: 0.5
+
+distribuciones:
+  media_gaussiana: 50
+  gaussiana_desviacion: 10
+  uniforme_min: 0
+  uniforme_max: 600                   # Distancia máxima en metros
+  
