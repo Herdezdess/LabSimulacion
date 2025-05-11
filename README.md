@@ -4,9 +4,10 @@
 
 ***Laboratorio de Simulación***
 
+----
+
 <h1 align="center">Proyecto Final</h1>
 
-----
 
 **Descripción General:**
 
