@@ -1,5 +1,3 @@
-# processing/simulacion.py
-
 import math
 import config
 from processing.objeto import Particula  # Importamos la clase Particula
