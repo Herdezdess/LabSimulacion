@@ -1,11 +1,13 @@
 simulacion:
+  ancho: 800
+  alto: 600
   N: 100
   gravedad: 9.81
   tiempo_simulacion: 100
   ancho_espacio: 800
   alto_espacio: 600
   radio_interaccion: 100
-  radio_colison: 10
+  radio_colision: 10
   M: 0.5
 
 distribuciones:
