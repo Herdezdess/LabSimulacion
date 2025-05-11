@@ -4,6 +4,10 @@
 
 ***Laboratorio de Simulación***
 
-# ***Proyecto Final***
+<h1 align="center">Título Centrado</h1>
+
+<p align="center">
+  <img src="https://ruta.com/imagen.png" width="200"/>
+</p>
 
 ----
